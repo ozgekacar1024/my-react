@@ -21,7 +21,13 @@ class App extends Component {
         </p>
        <button
         onClick ={()=>{
-         this.setState({name:'Anderi'})//otomatik olarak ismi güncelliyor
+        this.setState(
+          () => {
+            return{
+              name :{firstName:'Andrei',lastName:'Neaogie'},
+            };
+          }
+        );
         }}
         >
           change name

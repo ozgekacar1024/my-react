@@ -19,8 +19,7 @@ class App extends Component {
         </p>
        <button>
         onClick={()=>{
-          this.state.name='Sengul';
-          console.log(this.state);
+         this.setState({name:'Anderi'})//otomatik olarak ismi güncelliyor
         }}
        </button>
       </header>

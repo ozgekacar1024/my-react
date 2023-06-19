@@ -17,12 +17,13 @@ class App extends Component {
         <p>
           Hi {this.state.name}
         </p>
-       <button>
+       <button
         onClick= {()=> {
-        this.state.name = 'sengul';
-        console.log(this.state);
+        this.setState({ name: 'sengul' });
         }
         }
+        >
+          change name
        </button>
       </header>
     </div>

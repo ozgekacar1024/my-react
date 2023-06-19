@@ -3,16 +3,22 @@ import './App.css'; // burada css kodlarını gelmesini istiyoruz
 import { Component } from 'react';
 
 class App extends Component {
+  constructor(){
+    super();
+    this.state={
+      name:'Özge'
+    }
+  }
   render(){
   return (  //logonun dönmesini sağlıyor
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Hi yihua
+          Hi {this.state.name}
         </p>
        <button>
-        Chanege Name
+        onClick={()=>}
        </button>
       </header>
     </div>

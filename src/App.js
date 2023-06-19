@@ -18,7 +18,10 @@ class App extends Component {
           Hi {this.state.name}
         </p>
        <button>
-        onClick={()=>}
+        onClick={()=>{
+          this.state.name='Sengul';
+          console.log(this.state);
+        }}
        </button>
       </header>
     </div>

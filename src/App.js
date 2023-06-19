@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from './logo.svg'; //logoyu alıyoryz
+import './App.css'; // burada css kodlarını gelmesini istiyoruz
+import { Component } from 'react';
 
-function App() {
-  return (
+class App extends Component {
+  render(){
+  return (  //logonun dönmesini sağlıyor
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Hi yihua
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+       <button>
+        Chanege Name
+       </button>
       </header>
     </div>
   );
-}
+}}
 
 export default App;

@@ -29,16 +29,18 @@ class App extends Component {
   }
 
 
-  render(){
+  render(){ 
+    //render html gibi ne gösterileceğini belirler
   return (  //logonun dönmesini sağlıyor
     <div className="App">
     {this.state.monsters.map((monster) => { 
       return <div 
-      key={monster.id}><h1></h1>{monster.name}
+      key={monster.id}><h1>
+        </h1>{monster.name}
       </div>
     })}
     </div>
   );
 }}
-
+ 
 export default App;

@@ -7,25 +7,28 @@ class App extends Component {
     super();
     this.state={
     monsters:[
-      {
-        name:'Linda',
-        id:'12e1231e'
-      },
-      {
-        name:'Frank',
-        id:'12ed2dacas'
-      },
-      {
-        name:'Jacky',
-        id:'1231e'
-      },
-      {
-        name:'Anderi',
-        id:'12e1e213'
-      },
-    ]
+      
+    ],
     };
   }
+
+  componentDidMount(){
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then((Response) => Response.json())
+      //.then((users)=>console.log(users))//kullanıcıların geri çağrımızın argümanı olarak console da aktarılır
+      .then((users)=>this.state(()=>{
+        return{monsters:users}
+        ////monsterin kullanıcıları işaret ettiği nesneyi geri döndürecek
+      },
+      () => {
+        console.log(this.state); 
+        //monsterları isimlerini arayüzde gözteriyor console da diğer özelliklerini
+      }
+      
+      ));
+  }
+
+
   render(){
   return (  //logonun dönmesini sağlıyor
     <div className="App">

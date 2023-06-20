@@ -3,25 +3,25 @@ import './App.css'; // burada css kodlarını gelmesini istiyoruz
 import { Component } from 'react';
 
 class App extends Component {
-  constructor(){
+  constructor() {
     super();
     this.state = {
-      monsters: [
-      {
-        name: 'linda',
-      },
-      {
-        name: 'Frank',
-      },
-      {
-        name: 'jackie',
-      },
-      {
-       name: 'sengul',
-    },
-    ],
+      monsters: [],
     };
   }
+
+    componentDidMount() {
+    fetch('https://jsonplaceholder.typicode.com/users')
+    .then((response) => response.json())
+    .then((users) => this.setState(() => {
+      return{monsters: users}
+    },
+    () => {
+      console.log(this.state)
+    }
+    ));
+  } 
+
   render(){
   return (
     <div className="App">

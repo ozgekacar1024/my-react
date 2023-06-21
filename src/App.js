@@ -8,9 +8,11 @@ class App extends Component {
     this.state = {
       monsters: [],
     };
+    console.log('1');
   }
 
     componentDidMount() {
+      console.log('3')
     fetch('https://jsonplaceholder.typicode.com/users')
     .then((response) => response.json())
     .then((users) => this.setState(() => {
@@ -22,9 +24,18 @@ class App extends Component {
     ));
   } 
 
-  render(){
+  render() {
+    console.log('render');
   return (
-    <div className="App">
+    <div className='App'>
+      <input />
+      className='search-box' 
+      type='search'
+      placeholder='search monsters'  
+      onChange={(event) => { 
+        console.log(event.target.value);
+      }}
+      
       {this.state.monsters.map((monster) => {
       return ( 
       <div key={monster.id}>
@@ -32,6 +43,7 @@ class App extends Component {
         </div>
       ); 
       })}    
+
     </div> 
   );
 }}

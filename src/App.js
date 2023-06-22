@@ -8,6 +8,7 @@ class App extends Component {
     super();
     this.state={
     monsters:[],
+    searchField:''//search yaptığımız diziyi tutmamızı sağlayacak
     }; 
   }
 
@@ -31,7 +32,12 @@ class App extends Component {
 
   render(){ 
     //render html gibi ne gösterileceğini belirler
-  return (  //logonun dönmesini sağlıyor
+    
+    const filteredMonsters= this.state.monsters.filter((monster)=>{
+      return monster.name.toLocaleLowerCase().includes(this.state.searchField);
+    });
+ 
+    return (  //logonun dönmesini sağlıyor
     <div className="App">
       <input 
       className='search-box' 
@@ -40,19 +46,14 @@ class App extends Component {
       onChange={(event)=>{
        // console.log(event);
         
-        const searchString= event.target.value.toLocaleLowerCase();//dizlerin hepsını küçük harfe dönüştütür 
-        const filteredMonsters= this.state.monsters.filter((monster)=>{
-        //return monster.name.toLocaleLowerCase.includes(event.target.value);//bu haliyle küçük büyük harfe duyarllı değil
-        return monster.name.toLocaleLowerCase().includes(searchString);
-        //canavarın arama dizesini içeriyorsa true değerini föndürüyor
-         //eğer içermiyorsa ondan kurtul
-        });
-
+        const searchField= event.target.value.toLocaleLowerCase();//dizlerin hepsını küçük harfe dönüştütür 
           this.setState(()=> { 
-           return {monsters:filteredMonsters};//bu şekilde filtrelediğimiz dizi yeni dizi olarak kalıyor kendi dizimizi geri tutmak için 
-          }, ()=> {
+           return {searchField:filteredMonsters};//bu şekilde filtrelediğimiz dizi yeni dizi olarak kalıyor kendi dizimizi geri tutmak için 
+          },
+          /* ()=> {
             console.log({endingArray: this.state.monsters});
-          });
+          } */
+          );
       }}
       /> 
     {this.state.monsters.map((monster) => { 

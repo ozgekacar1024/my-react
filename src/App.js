@@ -39,7 +39,7 @@ class App extends Component {
       placeholder='search monsters' 
       onChange={(event)=>{
        // console.log(event);
-        console.log(event.target.value);//bu şek,lde canavarlar listesini filtreliyoruz
+        
         const searchString= event.target.value.toLocaleLowerCase();//dizlerin hepsını küçük harfe dönüştütür 
         const filteredMonsters= this.state.monsters.filter((monster)=>{
         //return monster.name.toLocaleLowerCase.includes(event.target.value);//bu haliyle küçük büyük harfe duyarllı değil
@@ -48,11 +48,11 @@ class App extends Component {
          //eğer içermiyorsa ondan kurtul
         });
 
-          this.setState(()=> {
-            return {monsters:filteredMonsters};
-          })
-
-
+          this.setState(()=> { 
+           return {monsters:filteredMonsters};//bu şekilde filtrelediğimiz dizi yeni dizi olarak kalıyor kendi dizimizi geri tutmak için 
+          }, ()=> {
+            console.log({endingArray: this.state.monsters});
+          });
       }}
       /> 
     {this.state.monsters.map((monster) => { 

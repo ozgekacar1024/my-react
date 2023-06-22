@@ -40,6 +40,19 @@ class App extends Component {
       onChange={(event)=>{
        // console.log(event);
         console.log(event.target.value);//bu şek,lde canavarlar listesini filtreliyoruz
+        const searchString= event.target.value.toLocaleLowerCase();//dizlerin hepsını küçük harfe dönüştütür 
+        const filteredMonsters= this.state.monsters.filter((monster)=>{
+        //return monster.name.toLocaleLowerCase.includes(event.target.value);//bu haliyle küçük büyük harfe duyarllı değil
+        return monster.name.toLocaleLowerCase().includes(searchString);
+        //canavarın arama dizesini içeriyorsa true değerini föndürüyor
+         //eğer içermiyorsa ondan kurtul
+        });
+
+          this.setState(()=> {
+            return {monsters:filteredMonsters};
+          })
+
+
       }}
       /> 
     {this.state.monsters.map((monster) => { 
